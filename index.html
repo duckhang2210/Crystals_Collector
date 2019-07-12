@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>RPG Game</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+  </head>
+  <body>
+    
+    
+    <div class="container"></div>
+  
+        
+        <section><h2>Pokemons</h2></section>
+        <div class="pokemonArea" id="pickingFighter">
+          
+           <a  id="charmander" class="pokemon" href="#" value = "red">
+            <img src="assets/images/charmander.png" style="width: 150px" alt="charmander">
+            <div>
+              
+            </div>
+          </a>
+        
+          <a id="squirtle" class="pokemon" href="#" value = "blue">
+            <img src="assets/images/squirtle.png" style="width: 170px" alt="squirtle">
+            <div>
+             
+            </div>
+          </a> 
+          <a id="bulbasaur" class="pokemon" href="#" value = "green">
+            <img src="assets/images/bulbasaur.png" style="width: 175px" alt="bulbasaur">
+            <div>
+              
+            </div>
+          </a> 
+          <a id="pikachu" class="pokemon" href="#" value = "yellow">
+            <img src="assets/images/pikachu.png" style="width: 190px" alt="pikachu">
+        </div>
+        <div>
+          <h3>Your total power:</h3>
+          <p id="totalPower"></p>
+          <h3>Target:</h3>
+          <p id="target"></p>
+        </div>
+        <div>
+          <h3 id="alert"></h3>
+          <h3>Wins:</h3>
+          <p id="wins">0</p>
+          <h3>Looses:</h3>
+          <p id="looses">0</p>
+
+        </div>
+       
+
+    
+        <script>
+          var randPokemon;
+          var randTarget;
+          var red;
+          var blue;
+          var green;
+          var yellow;
+          var yourPower;
+          var val;
+          var win = 0;
+          var loose = 0;
+          //get a random number in specific range function
+          function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+          }
+          // Get target number between 19-120
+          //randTarget = getRandom(19,120);
+          //$('#target').html(randTarget);
+          ////Give each pokemon a random number between 1-12
+          //red= getRandom(1,12);
+          //console.log(red);
+//
+          //blue= getRandom(1,12);
+          //console.log(blue);
+//
+          //green= getRandom(1,12);
+          //console.log(green);
+         //
+          //yellow= getRandom(1,12);
+          //console.log(yellow);
+          //win loose rule
+          function winLoose(){
+            if (yourPower === randTarget){
+              win++;
+              $('#wins').html(win);
+              $('#alert').html(" Hey you won!!")
+              resetGame();
+            }
+            if(yourPower > randTarget){
+              loose++;
+              $('#looses').html(loose);
+              $('#alert').html(" Loser!!!!!!!")
+              resetGame();
+            }
+          };
+          //reset
+          function resetGame(){
+            yourPower = 0;
+            red = 0;
+            blue = 0;
+            green = 0;
+            yellow = 0;
+             //Give each pokemon a random number between 1-12
+          red= getRandom(1,12);
+          console.log(red);
+
+          blue= getRandom(1,12);
+          console.log(blue);
+
+          green= getRandom(1,12);
+          console.log(green);
+         
+          yellow= getRandom(1,12);
+          console.log(yellow);
+            randTarget = getRandom(19,120);
+            $('#target').html(randTarget);
+          
+            // Get target number between 19-120
+            randTarget = getRandom(19,120);
+            $('#target').html(randTarget);
+
+            $('#totalPower').html(yourPower);
+            $(".pokemon").on("click",function(){
+              val = $(this).attr("value")
+              switch(val){
+                case 'red':
+                  yourPower += red;
+                  $('#totalPower').html(yourPower);
+                  break;
+                case 'blue':
+                  yourPower += blue;
+                  $('#totalPower').html(yourPower);
+                  break;
+                case 'green':
+                  yourPower += green;
+                  $('#totalPower').html(yourPower);
+                  break;
+                case 'yellow':
+                  yourPower += yellow;
+                  $('#totalPower').html(yourPower);
+                  break;
+              }
+            
+            })
+          }   
+
+          //main game function
+          function gameStart(){
+         
+            yourPower = 0;
+            red = 0;
+            blue = 0;
+            green = 0;
+            yellow = 0;
+             //Give each pokemon a random number between 1-12
+          red= getRandom(1,12);
+          console.log(red);
+
+          blue= getRandom(1,12);
+          console.log(blue);
+
+          green= getRandom(1,12);
+          console.log(green);
+         
+          yellow= getRandom(1,12);
+          console.log(yellow);
+            randTarget = getRandom(19,120);
+            $('#target').html(randTarget);
+          
+            // Get target number between 19-120
+            randTarget = getRandom(19,120);
+            $('#target').html(randTarget);
+
+            $('#totalPower').html(yourPower);
+            $(".pokemon").on("click",function(){
+              val = $(this).attr("value")
+              switch(val){
+                case 'red':
+                  yourPower += red;
+                  $('#totalPower').html(yourPower);
+                  break;
+                case 'blue':
+                  yourPower += blue;
+                  $('#totalPower').html(yourPower);
+                  break;
+                case 'green':
+                  yourPower += green;
+                  $('#totalPower').html(yourPower);
+                  break;
+                case 'yellow':
+                  yourPower += yellow;
+                  $('#totalPower').html(yourPower);
+                  break;
+              }
+              winLoose();
+            })
+          };
+            
+          
+
+          gameStart();
+        </script>
+  </body>
+</html>

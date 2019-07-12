@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    background-image: url('../images/background.jpg');
+    background-repeat: repeat;
+}
+header h1 {
+    text-align: center;
+    background-color: transparent;
+}
+section h2 {
+    text-align: center;
+}
+
+.pokemonArea {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: transparent;
+  }
+  
+  .pokemon {
+    margin: 10px 30px;
+    text-align: center;
+  }
+  img {
+      margin: 20px;
+  }
